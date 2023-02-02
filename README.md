@@ -1,6 +1,6 @@
 # Java_SP
 Semestrální práce předmětu Objektové programování - CLI projekt v Javě:
-Předpověď počasí.
+Generátor citací.
 
 *Tobiáš Tláskal*
 
