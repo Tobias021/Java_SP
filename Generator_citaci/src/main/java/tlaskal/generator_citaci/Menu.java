@@ -31,7 +31,7 @@ public class Menu {
 
     // sekce proměnných obsahující texty menu
     private final String menuUvod[] = {"""
-                                     Vitejte v generatoru citaci. Vyberte pozadovanou funkci:
+                                     Vitejte v generatoru citaci knih. Vyberte pozadovanou funkci:
                                      1) Vytvořit novou citaci""", "\n2) Zobrazit citaci", "\n0) Ukončit"};
 
     /**
