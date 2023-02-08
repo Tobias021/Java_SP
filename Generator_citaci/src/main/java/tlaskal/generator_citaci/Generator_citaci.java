@@ -24,7 +24,7 @@ public class Generator_citaci {
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println(" - Přerušeno, ukončuji...");
+                System.out.println("  Přerušeno, ukončuji...");
             }
         }));
         while (true) { // nekonenčý loop hlavní metody

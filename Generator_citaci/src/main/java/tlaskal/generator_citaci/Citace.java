@@ -24,7 +24,7 @@ import static tlaskal.generator_citaci.PrvkyEnum.*;
 public class Citace {
 
     //proměnná StringBuilderu
-    private final StringBuilder builder;
+    private StringBuilder builder;
     //proměnná uchovávající data pro vytvoření citace
     private Map<PrvkyEnum, String> vstupPolozky;
     //pole povinných prvků
@@ -34,8 +34,6 @@ public class Citace {
      * Konstruktor třídy Citace. Inicializuje StringBuilder a pole vstupníh dat.
      */
     public Citace() {
-        // inicializace StringBuilderu
-        builder = new StringBuilder();
         //inicializace pole vstupních dat
         vstupPolozky = new HashMap<>();
         for (PrvkyEnum p : PrvkyEnum.values()) {
@@ -78,6 +76,7 @@ public class Citace {
      * @return String citace
      */
     public String getCitace() {
+        builder = new StringBuilder();
         String tempPrvek; // uchovává aktuálně zpracovávaný prvek citace
         //PRIJMENI - UPPERCASE
         tempPrvek = vstupPolozky.get(PRIJMENI).strip().toUpperCase();

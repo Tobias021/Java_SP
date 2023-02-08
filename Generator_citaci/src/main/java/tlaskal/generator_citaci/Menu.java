@@ -169,7 +169,7 @@ public class Menu {
      */
     public void print(String text) {
         scanner = new Scanner(System.in);
-        clearTerminal();
+        printLogo();
         System.out.print(text + "\nPro pokračování zmáčkněte enter.");
         scanner.nextLine();
     }
