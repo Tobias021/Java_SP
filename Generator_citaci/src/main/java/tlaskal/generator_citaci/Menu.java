@@ -3,6 +3,8 @@ package tlaskal.generator_citaci;
 import java.io.IOException;
 import static java.lang.System.exit;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Třída obsluhující logiku tisku menu a loga. Obsahuje kód pro čištění textu
@@ -185,16 +187,11 @@ public class Menu {
      * proměnné isWindows se volí příkaz (Unix/Windows).
      */
     private void clearTerminal() {
-        try {
-            if (!isWindows) {
-                //parametry metody exec jsou v poli z toho důvodu, že metoda exec(String s) je zastaralá.
-                Runtime.getRuntime().exec(new String[]{"clear"});
-            } else {
-                Runtime.getRuntime().exec(new String[]{"cls"});
-            }
-        } catch (IOException e) {
-            error(e.getMessage(), false);
-            System.out.println();
+        String command = isWindows ? "cls" : "clear";
+        try {   //vytvoř ProcessBuilder, připoj ho na IO aplikace, spusť a vyčkej na dokončení
+            new ProcessBuilder(command).inheritIO().start().waitFor(); 
+        } catch (IOException | InterruptedException e) {
+            error("Chyba při čištění konzole", true);
         }
     }
 

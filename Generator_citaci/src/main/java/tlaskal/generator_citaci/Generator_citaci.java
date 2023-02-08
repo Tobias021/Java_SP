@@ -1,6 +1,8 @@
 package tlaskal.generator_citaci;
 
 import static java.lang.System.exit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Semestrální projekt předmětu Objektové programování - CLI generátor citací
@@ -17,9 +19,14 @@ public class Generator_citaci {
      * vrací volbu uživatele.
      *
      * @param args parametry z příkazového řádku ve formě pole
-     * @see
      */
     public static void main(String[] args) {
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(" - Přerušeno, ukončuji...");
+            }
+        }));
         while (true) { // nekonenčý loop hlavní metody
             int volba = -1; // proměnná uchovávající volbu uživatele v menu; -1 = chyba
             if (citace == null) { //pokud je dostupná citace, zobraz možnost ji vypsat
