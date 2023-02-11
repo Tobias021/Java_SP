@@ -3,8 +3,6 @@ package tlaskal.generator_citaci;
 import java.io.IOException;
 import static java.lang.System.exit;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Třída obsluhující logiku tisku menu a loga. Obsahuje kód pro čištění textu
@@ -16,7 +14,7 @@ import java.util.logging.Logger;
 public class Menu {
 
     private Citace citace; // uchovává objekt citace
-    private Scanner scanner; //
+    private Scanner scanner;
     private final boolean isWindows; // proměnná identifikující operační systém - inicializace v konstruktoru
     private final String logo = """
   _ _  _____ _ _                _ _
@@ -189,7 +187,7 @@ public class Menu {
     private void clearTerminal() {
         String command = isWindows ? "cls" : "clear";
         try {   //vytvoř ProcessBuilder, připoj ho na IO aplikace, spusť a vyčkej na dokončení
-            new ProcessBuilder(command).inheritIO().start().waitFor(); 
+            new ProcessBuilder(command).inheritIO().start().waitFor();
         } catch (IOException | InterruptedException e) {
             error("Chyba při čištění konzole", true);
         }
